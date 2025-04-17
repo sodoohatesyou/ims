@@ -82,8 +82,8 @@ const TableCard = ({ data, id }: any) => {
                 <td className="px-6 py-4">
                     <ul>
                             {
-                                data.items.length>0 && data.items.map((cur:any,i:number)=>{
-                                    return <li key={i}>{cur?.name} - &#8377;{cur?.price}/-</li>
+                               data.items.length > 0 && data.items.map((cur: any, i: number) => {
+                                    return <li key={i}>{cur?.name} - ₮{cur?.price}</li>
                                 })
                             }
                     </ul>
