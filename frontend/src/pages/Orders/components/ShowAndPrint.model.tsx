@@ -51,7 +51,7 @@ const ShowAndPrintModel = ({ setVisible, visible,id }:any) => {
                 <tr>
                   <th className='border py-2'>ID</th>
                   <th className='border py-2'>Item</th>
-                  <th className='border py-2'>Price (in &#8377;) </th>
+                  <th className='border py-2'>Price (in ₮) </th>
                 </tr>
               </thead>
 
@@ -60,7 +60,7 @@ const ShowAndPrintModel = ({ setVisible, visible,id }:any) => {
                   return <tr key={i} className='py-2'>
                     <td className='border text-center py-2'>{i + 1}</td>
                     <td className='border text-center py-2 capitalize'>{c.name}</td>
-                    <td className='border text-center py-2'>&#8377; {c.price}</td>
+                    <td className='border text-center py-2'>₮ {c.price}</td>
                   </tr>
                 })}
               </tbody>
@@ -70,7 +70,7 @@ const ShowAndPrintModel = ({ setVisible, visible,id }:any) => {
                     total
                   </th>
                   <th className='border capitalize text-center py-2'>
-                    &#8377;  {
+                    ₮ {
                       data.items && data.items.length > 0 && data.items.map((cur: OrderDoc ) =>cur.price ).reduce((a:any,c:any)=>a+c,0)
 
                     } /-
