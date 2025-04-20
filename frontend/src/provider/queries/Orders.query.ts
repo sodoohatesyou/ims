@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { useDeleteOrderMutation, useGetInvoiceByIdQuery } from '../../../provider/queries/Orders.query';
 
 export const OrdersApi = createApi({
     reducerPath: 'OrdersApi',
