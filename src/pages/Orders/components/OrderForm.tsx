@@ -1,5 +1,6 @@
 // OrderForm.tsx
-import { FieldArray, Field } from 'formik';
+import { FC } from 'react';
+import { FieldArray } from 'formik';
 import { Dropdown } from 'primereact/dropdown';
 import { InputNumber } from 'primereact/inputnumber';
 import BarcodeGenerator from './BarcodeGenerator';
@@ -10,24 +11,32 @@ const productOptions = [
   { label: 'Product C', value: 'PROD-C' },
 ];
 
-const OrderForm = ({ values, setFieldValue }: any) => {
+type OrderFormProps = {
+  values: {
+    items: { product: string; quantity: number }[];
+  };
+  setFieldValue: (field: string, value: any) => void;
+};
+
+const OrderForm: FC<OrderFormProps> = ({ values, setFieldValue }) => {
   return (
     <FieldArray name="items">
       {({ push, remove }) => (
         <>
-          <div className="mb-3 flex justify-end">
+          <div className="mb-4 flex justify-end">
             <button
               type="button"
               onClick={() => push({ product: '', quantity: 1 })}
-              className="bg-purple-500 px-4 text-white py-2 rounded-md"
+              className="bg-purple-500 px-4 py-2 text-white rounded-md"
             >
               Add Product +
             </button>
           </div>
 
-          {values.items.map((item: any, index: number) => (
-            <div key={index} className="flex items-center gap-4 mb-4">
-              <div className="w-full">
+          {values?.items?.map((item, index) => (
+            <div key={index} className="flex flex-wrap items-center gap-4 mb-4">
+              {/* Product Dropdown */}
+              <div className="flex-1 min-w-[200px]">
                 <Dropdown
                   value={item.product}
                   options={productOptions}
@@ -39,19 +48,22 @@ const OrderForm = ({ values, setFieldValue }: any) => {
                 />
               </div>
 
+              {/* Quantity Input */}
               <div className="w-32">
                 <InputNumber
                   value={item.quantity}
                   onValueChange={(e) =>
-                    setFieldValue(`items[${index}].quantity`, e.value)
+                    setFieldValue(`items[${index}].quantity`, e.value ?? 1)
                   }
                   min={1}
                   showButtons
+                  useGrouping={false}
                   placeholder="Qty"
                   className="w-full"
                 />
               </div>
 
+              {/* Remove Button */}
               <div>
                 <button
                   type="button"
@@ -62,8 +74,9 @@ const OrderForm = ({ values, setFieldValue }: any) => {
                 </button>
               </div>
 
+              {/* Barcode Preview */}
               {item.product && (
-                <div className="barcode-preview w-32">
+                <div className="w-32">
                   <BarcodeGenerator value={item.product} height={40} />
                 </div>
               )}
