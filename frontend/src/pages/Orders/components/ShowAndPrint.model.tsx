@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // ShowAndPrintModel.tsx
+=======
+>>>>>>> 184fa8d6d6219d6d20aeec3a3e9315ebe45bcba8
 import { Dialog } from 'primereact/dialog';
 import { useGetInvoiceByIdQuery } from '../../../provider/queries/Orders.query';
 import Loader from '../../../components/Loader';
@@ -13,6 +16,7 @@ const ShowAndPrintModel = ({ setVisible, visible, id }: any) => {
   if (isLoading || isFetching) return <Loader />;
   if (isError) return <>Something went wrong</>;
 
+<<<<<<< HEAD
   // Calculate total price and total quantity
   const totalPrice = data.items?.reduce(
     (acc: number, item: any) => acc + Number(item.price) * (item.quantity || 1),
@@ -23,6 +27,8 @@ const ShowAndPrintModel = ({ setVisible, visible, id }: any) => {
     0
   );
 
+=======
+>>>>>>> 184fa8d6d6219d6d20aeec3a3e9315ebe45bcba8
   return (
     <Dialog
       draggable={false}
@@ -47,10 +53,16 @@ const ShowAndPrintModel = ({ setVisible, visible, id }: any) => {
           <table className="border w-full">
             <thead className="border">
               <tr>
+<<<<<<< HEAD
                 <th className="border py-2">#</th>
                 <th className="border py-2">Item</th>
                 <th className="border py-2">Price (₮)</th>
                 <th className="border py-2">Qty</th>
+=======
+                <th className="border py-2">ID</th>
+                <th className="border py-2">Item</th>
+                <th className="border py-2">Price (in ₮)</th>
+>>>>>>> 184fa8d6d6219d6d20aeec3a3e9315ebe45bcba8
               </tr>
             </thead>
             <tbody>
@@ -61,17 +73,33 @@ const ShowAndPrintModel = ({ setVisible, visible, id }: any) => {
                     <td className="border text-center py-2">{index + 1}</td>
                     <td className="border text-center py-2 capitalize">{item.name}</td>
                     <td className="border text-center py-2">₮ {item.price}</td>
+<<<<<<< HEAD
                     <td className="border text-center py-2">{item.quantity || 1}</td>
+=======
+>>>>>>> 184fa8d6d6219d6d20aeec3a3e9315ebe45bcba8
                   </tr>
                 ))}
             </tbody>
             <tfoot>
               <tr>
+<<<<<<< HEAD
                 <th colSpan={2} className="border text-center py-2 font-semibold">
                   Total
                 </th>
                 <th className="border text-center py-2 font-semibold">₮ {totalPrice} /-</th>
                 <th className="border text-center py-2 font-semibold">{totalQuantity}</th>
+=======
+                <th colSpan={2} className="border text-center py-2 capitalize">
+                  Total
+                </th>
+                <th className="border text-center py-2">
+                  ₮{' '}
+                  {data.items
+                    ?.map((item: any) => item.price)
+                    .reduce((acc: number, curr: number) => acc + curr, 0)}{' '}
+                  /-
+                </th>
+>>>>>>> 184fa8d6d6219d6d20aeec3a3e9315ebe45bcba8
               </tr>
             </tfoot>
           </table>

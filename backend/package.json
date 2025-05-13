@@ -16,7 +16,11 @@
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^4.19.2",
+<<<<<<< HEAD
     "express-validator": "^7.2.1",
+=======
+    "express-validator": "^7.0.1",
+>>>>>>> 184fa8d6d6219d6d20aeec3a3e9315ebe45bcba8
     "http-status": "^1.7.4",
     "jsbarcode": "^3.11.6",
     "jsonwebtoken": "^9.0.2",

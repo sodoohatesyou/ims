@@ -24,9 +24,12 @@ const TableCard = ({ data, id }: any) => {
     }
   };
 
+<<<<<<< HEAD
   // Calculate total quantity
   const totalQuantity = data.items.reduce((acc: number, item: any) => acc + Number(item.quantity || 0), 0);
 
+=======
+>>>>>>> 184fa8d6d6219d6d20aeec3a3e9315ebe45bcba8
   return (
     <>
       <tr className="bg-white border-b">
@@ -42,12 +45,19 @@ const TableCard = ({ data, id }: any) => {
             {data.items.length > 0 &&
               data.items.map((cur: any, i: number) => (
                 <li key={i}>
+<<<<<<< HEAD
                   {cur?.name} - ₮{cur?.price} × {cur?.quantity}
                 </li>
               ))}
           </ul>
           {/* Total Quantity Display */}
           <p className="mt-2 font-semibold">Total Qty: {totalQuantity}</p>
+=======
+                  {cur?.name} - ₮{cur?.price}
+                </li>
+              ))}
+          </ul>
+>>>>>>> 184fa8d6d6219d6d20aeec3a3e9315ebe45bcba8
         </td>
         <td className="px-6 py-4">
           <button
